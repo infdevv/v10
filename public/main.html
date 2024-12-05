@@ -144,63 +144,8 @@
           box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Deeper shadow on hover */
         }
         
-        
             </style>
-            <img src="assets/images/logo_trans.png" id="glitch-logo" alt="Glitch">
-            <div id="nav-links">
-                <div id="separator"></div>
-                
-                <div onclick="window.location.href = 'main.html'"  style="display: flex;">
-                <span class="material-symbols-outlined">home</span>
-                <h3 onclick="window.location.href = 'main.html'">Home</h3>
-                </div>
-                <h3>/</h3> 
-                
-                <div onclick="window.location.href = 'apps.html'" style="display: flex;">
-                <span class="material-symbols-outlined">apps</span>
-                <h3 >Apps</h3>
-              </div>
-                <h3>/</h3>
-                <div onclick="window.location.href = 'discord.html'"  style="display: flex;">
-                <span class="material-symbols-outlined">chat</span>
-                <h3>Discord</h3>
-              </div>
-              <h3>/</h3>
-              
-              <div onclick="window.location.href = 'abtbrw.html'"  style="display: flex;">
         
-                <span class="material-symbols-outlined">language</span>
-                <h3>Browser</h3>
-              </div>
-                <h3>/</h3>
-                <div onclick="window.location.href = 'settings.html'" style="display: flex;">
-                <span class="material-symbols-outlined" style="font-variation-settings: filled;">settings</span>
-                <h3 >Settings</h3>
-              </div>
-                <h3>|</h3>
-                <h3 id="time">hai</h3>
-            </div>
-            <script>
-            function updateTime() {
-        const timeElement = document.getElementById('time');
-        if (!timeElement) return;
-        
-        const now = new Date();
-        let hours = now.getHours();
-        const minutes = now.getMinutes();
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        
-        hours = hours % 12;
-        hours = hours ? hours : 12;
-        const minutesStr = minutes < 10 ? '0' + minutes : minutes;
-        
-        const timeStr = `${hours}:${minutesStr} ${ampm}`;
-        timeElement.textContent = timeStr;
-        }
-        
-        setInterval(updateTime, 5000);
-        updateTime(); 
-            </script>
         </div>
     </div>
     <br>
@@ -210,20 +155,79 @@
             <br>
             <br>
             <br>
-            <h1 style="font-size: 70px;">Glitch</h1>
+            <h1 style="font-size: 80px;">Glitch</h1>
             <br>
 
-            <div class="tos-notification" style="display: none;">
+            <div id="toolbar">
+  
+              <img src="assets/images/logo_trans.png" id="glitch-logo" alt="Glitch">
+              <div id="nav-links">
+                  <div id="separator"></div>
+                  
+                  <div onclick="window.location.href = 'main.html'"  style="display: flex;">
+                  <span class="material-symbols-outlined">home</span>
+                  <h3 onclick="window.location.href = 'main.html'">Home</h3>
+                  </div>
+                  <h3>/</h3> 
+                  
+                  <div onclick="window.location.href = 'apps.html'" style="display: flex;">
+                  <span class="material-symbols-outlined">apps</span>
+                  <h3 >Apps</h3>
+                </div>
+                  <h3>/</h3>
+                  <div onclick="window.location.href = 'chat.html'"  style="display: flex;">
+                  <span class="material-symbols-outlined">chat</span>
+                  <h3>Chat</h3>
+                </div>
+                <h3>/</h3>
+                
+                <div onclick="window.location.href = 'abtbrw.html'"  style="display: flex;">
+          
+                  <span class="material-symbols-outlined">window</span>
+                  <h3>Windows</h3>
+                </div>
+                  <h3>/</h3>
+                  <div onclick="window.location.href = 'settings.html'" style="display: flex;">
+                  <span class="material-symbols-outlined" style="font-variation-settings: filled;">settings</span>
+                  <h3 >Settings</h3>
+                </div>
+                  <h3>|</h3>
+                  <h3 id="time">hai</h3>
+              </div>
+              <script>
+              function updateTime() {
+          const timeElement = document.getElementById('time');
+          if (!timeElement) return;
+          
+          const now = new Date();
+          let hours = now.getHours();
+          const minutes = now.getMinutes();
+          const ampm = hours >= 12 ? 'PM' : 'AM';
+          
+          hours = hours % 12;
+          hours = hours ? hours : 12;
+          const minutesStr = minutes < 10 ? '0' + minutes : minutes;
+          
+          const timeStr = `${hours}:${minutesStr} ${ampm}`;
+          timeElement.textContent = timeStr;
+          }
+          
+          setInterval(updateTime, 5000);
+          updateTime(); 
+              </script>
+          </div>
+
+            <div class="tos-notification" style="display: none; ">
                 <div class="tos-content" style="color: black; text-align: left; padding: 20px; background-color: #fff; border-radius: 10px; width: 70%;">
                     <h2>Welcome!</h2>
                     <p>
-                        Welcome to Glitch! The proxy that knows <b>NOTHING</b> about you. There is a catch, though: you need to agree to our TOS. 
-                        It says that we not liable for any actions you take while using our service, mainly because we don't know what you do.
+                        Welcome to Glitch! The proxy that knows <b>NOTHING</b> about you. 
+
                         <br>
 
                     </p>
                     <p>
-                        The TOS is available <a href="tos.md">here</a>.
+                        Our TOS is available <a href="tos.md">here</a>.
                         By using any Glitch service on or after the publication of these terms, you acknowledge and accept these terms.
                     </p>
                     <p>
@@ -244,26 +248,14 @@
                 </div>
               </div>
             <br>
-            <button id="cloak" class="main_button">Cloak</button>
-            <button class="main_button" onclick="window.location='https://discord.gg/mWGtwnyjgK'">Join the Discord</button>   
+
+            <button class="main_button" onclick="window.location='https://discord.gg/mWGtwnyjgK'">Get more links</button>   
             <button class="main_button" onclick="window.location='contributers.html'">Contributers</button>   
-            <button class="main_button" onclick="load_dex()">Dextensify</button>   
+            <button class="main_button" onclick="window.location='launch.html?url=lucidity-ai.onrender.com/chat.html'">AI Chat</button>   
+            
             <br>
             <br>
-            <center>
-              <div style="padding: 20x; border-radius: 15px; background-color: #1f1f1f; width: 25%; padding-top: 25px; padding-bottom: 25px;">
-              <script type="text/javascript">
-                atOptions = {
-                  'key' : 'e17a0ee6656019085028f3a33b2a5424',
-                  'format' : 'iframe',
-                  'height' : 250,
-                  'width' : 300,
-                  'params' : {}
-                };
-              </script>
-              <script type="text/javascript" src="https://udbaa.com/bnr.php?section=General&pub=594163&format=300x250&ga=g"></script>
-              <noscript><a href="https://yllix.com/publishers/594163" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/300x250.png" style="border:none;margin:0;padding:0;vertical-align:baseline;" alt="ylliX - Online Advertising Network" /></a></noscript>
-              <p><b style="color: rgb(124, 124, 124);">AD to pay for servers.</b></p>
+            <center>              
             </div>
             </center>
 
@@ -280,39 +272,9 @@
 
     <script>
 
-function handle_fullscreen() {
-    const presets = {
-        "Google Slides": "/assets/favicons/slides_favicon.png",
-        "Google": "/assets/favicons/google_favicon.png",
-        "I-Ready": "/assets/favicons/iready_favicon.png",
-        "Clever": "/assets/favicons/clever_favicon.png",
-        "FBI": "https://www.fbi.gov/++theme++fbigov.theme/images/fbi_seal_new.png",
-        "Google Classroom": "/assets/favicons/classroom_favicon.png",
-        "Github": "/assets/favicons/github_favicon.jpg",
-        "Wikipedia": "/assets/favicons/wiki_favicon.png"
-    };
-
-    let preset = localStorage.getItem("autohide_preset") || "Google Classroom";
-
-    let x = "main.html";
-    
-    let code = `
-        <head>
-          <title>${preset}</title>
-          <link rel="icon" type="image/x-icon" href="${presets[preset]}">
-        </head>
-        <body style="background-color: black">
-          <iframe src="${x}" frameborder="0" style="position: fixed; inset: 0; outline: none; border: none; height: 100%; width: 100%;"></iframe>
-        </body>
-    `;
-
-    let newWindow = window.open("about:blank", "_blank");
-    newWindow.document.write(code);
-    newWindow.document.close(); // Ensure the document is complete and can be rendered
-    newWindow.document.body.style.backgroundColor = "black";
-    window.location = "https://google.com"
-
-      }
+if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+  window.location = "features/mobile.html";
+}
 
     
     
@@ -322,34 +284,6 @@ function handle_fullscreen() {
 // load()
          
 
-
-
-            document.getElementById("cloak").addEventListener("click",function(){
-
-load();
-
-
-    })
-    function load_dex() {
-    const presets = {
-        "Google Slides": "/assets/favicons/slides_favicon.png",
-        "Google": "/assets/favicons/google_favicon.png",
-        "I-Ready": "/assets/favicons/iready_favicon.png",
-        "Clever": "/assets/favicons/clever_favicon.png",
-        "FBI": "https://www.fbi.gov/++theme++fbigov.theme/images/fbi_seal_new.png",
-        "Google Classroom": "/assets/favicons/classroom_favicon.png",
-        "Github": "/assets/favicons/github_favicon.jpg",
-        "Wikipedia": "/assets/favicons/wiki_favicon.png"
-    };
-
-    let preset = localStorage.getItem("autohide_preset") || "Google Classroom";
-
-    let x = "features/dexten.html";
-    newWindow = window.open(x);
-  newWindow.document.write('<iframe src="'+ x +'" style="position: fixed; inset: 0; outline: none; border: none; height: 100%; width: 100%;"></iframe>');
-
-    
-}
 
 
         document.addEventListener("DOMContentLoaded", function() {

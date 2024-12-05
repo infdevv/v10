@@ -113,12 +113,11 @@ function updateStyles(config) {
 
 
 
-
 const themes = {
     // Mocha Theme
     Mocha: {
         backgroundColorMain: '#F3E5AB',
-        backgroundColorToolbar: '#8B4513',
+        backgroundColorToolbar: '#CD853F', // Changed for better contrast
         textColor: '#4B2E83',
         gradientBackground: 'linear-gradient(to bottom, #A0522D, #F3E5AB)',
         toolbarBorderColor: '#A0522D',
@@ -128,7 +127,7 @@ const themes = {
     // Ocean Breeze Theme
     OceanBreeze: {
         backgroundColorMain: '#A0D9FF',
-        backgroundColorToolbar: '#004D73',
+        backgroundColorToolbar: '#0082BA', // Changed for clearer visibility
         textColor: '#FFFFFF',
         gradientBackground: 'linear-gradient(to bottom, #004D73, #A0D9FF)',
         toolbarBorderColor: '#003850',
@@ -138,16 +137,17 @@ const themes = {
     // Neon Night Theme
     NeonNight: {
         backgroundColorMain: '#000000',
-        backgroundColorToolbar: '#1F1F1F',
+        backgroundColorToolbar: '#343434', // Lightened to differentiate from main background
         textColor: '#00FF00',
         gradientBackground: 'linear-gradient(to bottom, #0D0D0D, #2E2E2E)',
         toolbarBorderColor: '#00FF00',
-        buttonBackgroundColor: '#00FF00',    },
+        buttonBackgroundColor: '#00FF00',
+    },
 
     // Vintage Rose Theme
     VintageRose: {
         backgroundColorMain: '#F9E4E4',
-        backgroundColorToolbar: '#D0A6A6',
+        backgroundColorToolbar: '#BF8181', // Adjusted for contrast
         textColor: '#6D3F3F',
         gradientBackground: 'linear-gradient(to bottom, #D0A6A6, #F9E4E4)',
         toolbarBorderColor: '#B94D6C',
@@ -157,7 +157,7 @@ const themes = {
     // Forest Green Theme
     ForestGreen: {
         backgroundColorMain: '#E8F5E9',
-        backgroundColorToolbar: '#2E7D32',
+        backgroundColorToolbar: '#388E3C', // Darkened to stand out more
         textColor: '#1B5E20',
         gradientBackground: 'linear-gradient(to bottom, #2E7D32, #E8F5E9)',
         toolbarBorderColor: '#1B5E20',
@@ -167,7 +167,7 @@ const themes = {
     // Twilight Purple Theme
     TwilightPurple: {
         backgroundColorMain: '#EDE7F6',
-        backgroundColorToolbar: '#6A1B9A',
+        backgroundColorToolbar: '#7B1FA2', // Slightly darkened for better differentiation
         textColor: '#AB47BC',
         gradientBackground: 'linear-gradient(to bottom, #6A1B9A, #EDE7F6)',
         toolbarBorderColor: '#AB47BC',
@@ -177,7 +177,7 @@ const themes = {
     // Sandy Beach Theme
     SandyBeach: {
         backgroundColorMain: '#FFF3E0',
-        backgroundColorToolbar: '#FFAB91',
+        backgroundColorToolbar: '#FF8A65', // Adjusted to differentiate from main background
         textColor: '#BF360C',
         gradientBackground: 'linear-gradient(to bottom, #FFAB91, #FFF3E0)',
         toolbarBorderColor: '#BF360C',
@@ -187,7 +187,7 @@ const themes = {
     // Arctic Chill Theme
     ArcticChill: {
         backgroundColorMain: '#E1F5FE',
-        backgroundColorToolbar: '#0288D1',
+        backgroundColorToolbar: '#039BE5', // Darkened for clearer visibility
         textColor: '#0277BD',
         gradientBackground: 'linear-gradient(to bottom, #0288D1, #E1F5FE)',
         toolbarBorderColor: '#0277BD',
@@ -197,7 +197,7 @@ const themes = {
     // Sunset Orange Theme
     SunsetOrange: {
         backgroundColorMain: '#FFEBEE',
-        backgroundColorToolbar: '#FF7043',
+        backgroundColorToolbar: '#FF5722', // Changed for stronger contrast
         textColor: '#BF360C',
         gradientBackground: 'linear-gradient(to bottom, #FF7043, #FFEBEE)',
         toolbarBorderColor: '#BF360C',
@@ -207,13 +207,14 @@ const themes = {
     // Midnight Blue Theme
     MidnightBlue: {
         backgroundColorMain: '#001F3F',
-        backgroundColorToolbar: '#003366',
+        backgroundColorToolbar: '#004B95', // Lightened to ensure toolbar is distinct
         textColor: '#E0E0E0',
         gradientBackground: 'linear-gradient(to bottom, #003366, #001F3F)',
         toolbarBorderColor: '#003366',
         buttonBackgroundColor: '#003366',
     }
 };
+
 
 if (localStorage.getItem("theme") != null && localStorage.getItem("theme") != "nul" && window.location.href.includes("launch.html") == false) {
     updateStyles(themes[localStorage.getItem("theme")]);

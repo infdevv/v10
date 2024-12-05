@@ -93,6 +93,10 @@
       }
     }
 
+    iframe {
+      background-color: white;
+    }
+
     .country-flag {
       position: absolute;
       right: 10px;
@@ -338,7 +342,7 @@ set_flags()
           try {
             const frame = document.getElementById("uv-frame");
           
-            const decodedUrl = __uv$config.decodeUrl(frame.contentWindow.location.href.split("/search/")[1]);
+            const decodedUrl = __uv$config.decodeUrl(frame.contentWindow.location.href.split("/assets-images/backgrounds/")[1]);
            
             if (decodedUrl && decodedUrl !== document.getElementById("search").value) {
               document.getElementById("search").value = decodedUrl;
@@ -390,7 +394,7 @@ set_flags()
 
     let preset = localStorage.getItem("autohide_preset") || "Google Classroom";
 
-    let x = "/search/" + __uv$config.encodeUrl(document.getElementById("search").value);
+    let x = "/assets-images/backgrounds/" + __uv$config.encodeUrl(document.getElementById("search").value);
     
     let code = `
         <head>

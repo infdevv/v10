@@ -26,7 +26,19 @@ body {
   background-attachment: fixed;
   color: var(--text-color);
   min-height: 100vh;
+
+
+background: hsla(241, 100%, 66%, 1);
+
+background: linear-gradient(90deg, hsla(241, 100%, 66%, 1) 0%, hsla(0, 100%, 73%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(241, 100%, 66%, 1) 0%, hsla(0, 100%, 73%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(241, 100%, 66%, 1) 0%, hsla(0, 100%, 73%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#5350FF", endColorstr="#FF7777", GradientType=1 );
 }
+
 
 #toolbar {
   position: fixed;
@@ -304,3 +316,37 @@ ntainer{
   color: #644bff;
   cursor: pointer;
 }
+
+#snackbar {
+  visibility: hidden;
+  width: 250px;
+
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {right: 0; opacity: 0;} 
+  to {right: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {right: 0; opacity: 0;}
+  to {right: 30px; opacity: 1;}
+}
+
