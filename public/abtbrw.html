@@ -158,6 +158,7 @@ background: radial-gradient(circle at top left,transparent 9%, #82a4f4 10% ,#82a
             <span class="material-symbols-outlined" onclick="openApp('web')">globe</span>
             <span class="material-symbols-outlined" onclick="openApp('game')">joystick</span>
             <span class="material-symbols-outlined" onclick="openApp('terminal')">terminal</span>
+            <span class="material-symbols-outlined" onclick="openApp('code')">code</span>
         </div>
         <div class="system-tray">
             <div id="clock" class="time"></div>
@@ -263,7 +264,10 @@ function openApp(app){
         createWindow('window2', 'Discord', '<iframe src="/assets-images/backgrounds/aHZ0cnM4JTJGLWRrc2FvcGQlMkNjbW0tYXFzZ3RxJTJGJTYwOSUzQjk3NTA1YzUwZGE1JTNBYWdjZDUlMkNzdGc%3D" style="border:0; flex-grow:1; width:100%; height:100%;"></iframe>', true);
     }
     else if (app == "terminal"){
-      createWindow('window4', 'Terminal', '<iframe src="/features/terminal.html" style="border:0; flex-grow:1; width:100%; height:100%;"></iframe>', true);  
+      createWindow('window4', 'Glitch Terminal', '<iframe src="/features/terminal.html" style="border:0; flex-grow:1; width:100%; height:100%;"></iframe>', true);  
+    }
+    else if (app == "code"){
+      createWindow('window5', 'Terminal', '<iframe src="/assets-images/backgrounds/aHZ0cnM4JTJGLWduaXZjai1sZXZ3bXJpLmVpdmh3YiUyQ2ltJTJGaHNuaWx1eiUyRg%3D%3D" style="border:0; flex-grow:1; width:100%; height:100%;"></iframe>', true);  
     }
 }
 
