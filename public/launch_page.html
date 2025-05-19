@@ -247,36 +247,13 @@ img {
 </script>
   <div id="searchbar">
     <span id="refresh" onclick="location.reload()" class="material-symbols-outlined" style="margin-right: 25px; color: black;">refresh</span>
+    <span id="proxy-toggle" onclick="toggleProxyMode()" class="material-symbols-outlined" style="margin-right: 25px; color: black; cursor: pointer;" title="Toggle Proxy for this URL">shield</span>
     <input id="search" oninput="search()" placeholder="Input a URL or search..." type="search"/>
     <span onclick="navigateToPage()" class="material-symbols-outlined" style="margin-left: 25px;">search</span>
     <span onclick="handle_eruda()" class="material-symbols-outlined" style="margin-left: 25px;">terminal</span>
     <span onclick="handle_fullscreen()" class="material-symbols-outlined" style="margin-left: 25px;">fullscreen</span>
 
-    <div class="country-flag" title="The path proxies your connection is going through.">
-      <span class="material-symbols-outlined" title="Your computer">
-        computer
-      </span>
-      <span class="material-symbols-outlined">
-        arrow_forward
-      </span>
-      
-      <img id="main_flag" src="https://flagsapi.com/US/shiny/64.png">
-
-
-      <div id="second_flag_div" style="display: none;">
-      <span class="material-symbols-outlined">
-        arrow_forward
-      </span>
-      <img id="second_flag" src="https://flagsapi.com/DE/shiny/64.png">
-      </div>
-      <span class="material-symbols-outlined" >
-        arrow_forward
-      </span>
-      
-      <span class="material-symbols-outlined" title="The destination.">
-        dns
-      </span>
-      
+            
     </div>
   </div>
 
@@ -304,6 +281,20 @@ const search_engine_preference = localStorage.getItem("search_engine") || "Googl
 const proxy_bridge = localStorage.getItem("proxy");
 const premium_status = localStorage.getItem("premium") === "true";
 let suggestions = [];
+
+// Update proxy toggle icon color on input change and page load
+function updateProxyToggleIcon() {
+  const url = document.getElementById('search').value;
+  const btn = document.getElementById('proxy-toggle');
+  if (!btn) return;
+  if (shouldProxyUrl(url)) {
+    btn.style.color = '#2196f3'; // Blue when ON
+    btn.title = "Proxy ENABLED for this URL (click to disable)";
+  } else {
+    btn.style.color = 'white'; // White when OFF
+    btn.title = "Proxy DISABLED for this URL (click to enable)";
+  }
+}
 
 
       search_engine = "https://search.brave.com/search?q="    
@@ -368,6 +359,11 @@ set_flags()
 
     document.getElementById("search").addEventListener("focusin", () => typing = 1);
     document.getElementById("search").addEventListener("focusout", () => typing = 0);
+    
+    // Update proxy icon on input
+    document.getElementById("search").addEventListener("input", updateProxyToggleIcon);
+    // Also update on page load
+    document.addEventListener("DOMContentLoaded", updateProxyToggleIcon);
 
     function getURLParameter(name) {
       const regex = new RegExp(`[\\?&]${name}=([^&#]*)`);
@@ -574,6 +570,59 @@ set_flags()
         return [];
       }
     }
+
+    // Function to toggle proxy mode for current URL
+    function toggleProxyMode() {
+        const currentUrl = document.getElementById('search').value;
+        if (!currentUrl) return;
+    
+        let nonProxiedUrls = JSON.parse(localStorage.getItem('nonProxiedUrls') || '[]');
+        const index = nonProxiedUrls.indexOf(currentUrl);
+        if (index === -1) {
+            // Add to non-proxied list (turn proxy OFF)
+            nonProxiedUrls.push(currentUrl);
+            document.getElementById('proxy-toggle').style.color = 'white';
+            localStorage.setItem('nonProxiedUrls', JSON.stringify(nonProxiedUrls));
+            loadUrl(currentUrl); // Load directly in iframe (proxy OFF)
+        } else {
+            // Remove from non-proxied list (turn proxy ON)
+            nonProxiedUrls.splice(index, 1);
+            document.getElementById('proxy-toggle').style.color = '#2196f3';
+            localStorage.setItem('nonProxiedUrls', JSON.stringify(nonProxiedUrls));
+            // Load proxied URL into iframe (proxy ON)
+            const iframe = document.getElementById('uv-frame');
+            iframe.src = `${__uv$config.prefix}${__uv$config.encodeUrl(currentUrl)}`;
+        }
+        updateProxyToggleIcon();
+    }
+
+    // Function to check if a URL should be proxied
+    function shouldProxyUrl(url) {
+        const nonProxiedUrls = JSON.parse(localStorage.getItem('nonProxiedUrls') || '[]');
+        return !nonProxiedUrls.includes(url);
+    }
+
+    // Modify the existing loadUrl function to handle non-proxied URLs
+    function loadUrl(url) {
+        const iframe = document.getElementById('uv-frame');
+        if (shouldProxyUrl(url)) {
+            // Use UV proxy
+            iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+        } else {
+            // Load directly in iframe
+            iframe.src = url;
+        }
+    }
+
+    // Update the search input handler to check proxy status
+    document.getElementById('search').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const url = this.value;
+            updateProxyToggleIcon();
+            loadUrl(url);
+        }
+    });
   </script>
+    
 </body>
 </html>

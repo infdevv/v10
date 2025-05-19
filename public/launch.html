@@ -197,6 +197,7 @@ iframe {
 
 <body>
     <div id="tabs">
+        <div class="create_tab" onclick="window.history.back()"><span class="material-symbols-outlined">arrow_back</span></div>
         <div class="create_tab" onclick="load_workspace()"><span class="material-symbols-outlined">upload_file</span></div>
         <div id="tabs2"></div>
         <div id="create_tab" onclick="createTab('New Tab', './start.html')">+</div>
@@ -388,10 +389,16 @@ upload_workspace().then((contents) => {
             }
         });
 
+        // if the "game" parameter of the url is true, replace the workspace button with a "back to games.html" button
+        if (getURLParameter("games") === "true") {
+            document.getElementById("workspace").innerHTML = "Back to Games";
+            document.getElementById("workspace").href = "games.html";
+            
+        }
        
 
     </script>
-    <script src="scripts/js/global.js"></script>
+    
 </body>
 
 </html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choose Your Mode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: #23272e;
+      color: #ececec;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: #292d36;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 2px 12px #0008;
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+      /* purple outline */
+      border: 2px solid #8b5cf6;
+    }
+    h1 {
+      margin-bottom: 0.7em;
+      font-size: 2em;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+    p {
+      margin-bottom: 2em;
+      color: #b9bcc7;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1em;
+      flex-direction: column;
+    }
+    .mode-btn {
+      padding: 1.2em 1em;
+      font-size: 1.15em;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-bottom: 0.5em;
+      transition: background 0.14s, color 0.14s, transform 0.1s;
+      box-shadow: 0 1px 9px #0003;
+    }
+    .mode-btn.desktop {
+      background: #3b82f6;
+      color: #fff;
+    }
+    .mode-btn.desktop:hover {
+      background: #2563eb;
+      transform: scale(1.03);
+    }
+    .mode-btn.game {
+      background: #f59e42;
+      color: white;
+    }
+    .mode-btn.game:hover {
+      background: #ed8936;
+      color: #fff;
+      transform: scale(1.03);
+    }
+    @media (max-width: 400px) {
+      .container {
+        padding: 1.5rem 0.5rem;
+      }
+      h1 {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Glitch!</h1>
+    <p>
+      Choose a mode to get started.<br>
+
+    </p>
+    <div class="btn-group">
+      <button class="mode-btn desktop" onclick="selectMode('desktop')">Desktop Mode</button>
+      <button class="mode-btn game" color="white" onclick="selectMode('game')">Game Site Mode</button>
+    </div>
+  </div>
+  <script>
+    function selectMode(mode) {
+      localStorage.setItem('defaultMode', mode);
+      if (mode === 'desktop') {
+        window.location.href = 'main.html';
+      } else {
+        window.location.href = '/gamesite/index.html';
+      }
+    }
+  </script>
+</body>
+</html>

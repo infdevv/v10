@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glitch - Chat</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <style>
+        body {
+            overflow: none;
+        }
+        .iframebox {
+            display: flex;
+            width: 80%;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem 0;
+            min-height: 70vh;
+        }
+        .iframebox iframe {
+            width: 100%;
+            height: 80vh;
+            border: 2px solid #23263a;
+            border-radius: 16px;
+            box-shadow: 0 6px 32px rgba(0,0,0,0.22);
+            background: #23263a;
+        }
+        @media (max-width: 900px) {
+            .iframebox iframe {
+                max-width: 98vw;
+                height: 65vw;
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/images/logo_trans.png" alt="Logo">
+            <span>Glitch</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="games.html">Games</a>
+            <a href="chat.html" class="active">Chat</a>
+            <a href="tabs.html">Tabs</a>        
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+    <main>
+        <section class="iframebox">
+            <iframe src="../chat.html" title="Chat" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        </section>
+    </main>
+<script src="theme.js"></script>
+</body>
+</html>

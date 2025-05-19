@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glitch - Home</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href = '/'">
+            <img src="../assets/images/logo_trans.png" alt="Logo">
+            <span>Glitch</span>
+        </div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="games.html">Games</a>
+            <a href="chat.html">Chat</a>
+            <a href="tabs.html">Tabs</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+    <main>
+        <section class="centerpiece">
+            <h1>Welcome to Glitch!</h1>
+            <form id="queryForm" autocomplete="off">
+                <div class="search-container">
+                    <input type="text" id="gameQuery" placeholder="Enter game URL or search..." required>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script>
+        document.getElementById('queryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.getElementById('gameQuery').value.trim();
+            if (query) {
+                const isURL = /^https?:\/\//.test(query);
+                const url = isURL ? query : 'https://search.brave.com/search?q=' + encodeURIComponent(query + ' game');
+                window.location.href = 'launch.html?url=' + encodeURIComponent(url);
+            }
+        });
+    </script>
+<script src="theme.js"></script>
+</body>
+</html>
